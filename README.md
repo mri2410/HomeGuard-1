@@ -22,5 +22,5 @@ run $ qmake
 (Qt4 should be installed before these projects are run)
 Check you email, a message will be in your email inbox.
 
-When finished, go back to terminal and enter Ctrl + c to exit the program.
+When finished, close the GUIs, and go back to terminal that you run the python file and enter Ctrl + c to exit the program.
 
