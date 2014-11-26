@@ -4,7 +4,6 @@
 #include <QMainWindow>
 #include <QFont>
 #include <QtNetwork/QTcpSocket>
-
 namespace Ui {
 class MainWindow;
 }
@@ -32,6 +31,7 @@ private:
     QString IP_Address;
     int port;
     QString PreviousMessage;
+    void sendMessage(QString);
 };
 
 #endif // MAINWINDOW_H

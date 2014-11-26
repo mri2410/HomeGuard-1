@@ -43,7 +43,7 @@
    <widget class="QPlainTextEdit" name="plainTextEdit">
     <property name="geometry">
      <rect>
-      <x>340</x>
+      <x>320</x>
       <y>250</y>
       <width>701</width>
       <height>271</height>
@@ -99,7 +99,7 @@
      <x>0</x>
      <y>0</y>
      <width>948</width>
-     <height>21</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>

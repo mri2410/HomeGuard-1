@@ -3,7 +3,6 @@
 #include <QKeyEvent>
 #include <QMessageBox>
 #include <QString>
-#include <QResizeEvent>
 #include <QString>
 #include <QFont>
 #include <QDebug>
@@ -21,7 +20,7 @@ MainWindow::MainWindow(QWidget *parent) :
     font.setStyleHint(QFont::Times);
     ui->label->setFont(font);
     QString msgLine1 = "If you would like to send us a message, type it in the text box below.";
-    QString msgLine2 = "\n                              When finished press OK.";
+    QString msgLine2 = "\n                                   When finished press OK.";
     ui->label_2->setText(msgLine1 + msgLine2);
     font.setPointSize(12);
     font.setBold(true);
@@ -30,11 +29,11 @@ MainWindow::MainWindow(QWidget *parent) :
     font.setBold(false);
     font.setPointSize(14);
     ui->plainTextEdit->setFont(font);
-    ui->pushButton->setGeometry(940,540,81,31);
+    ui->pushButton->setGeometry(910,540,81,31);
     ui->pushButton->setText("OK");
-    ui->pushButton_2->setGeometry(820, 540, 81, 31);
+    ui->pushButton_2->setGeometry(790, 540, 81, 31);
     ui->pushButton_2->setText("Cancel");
-    ui->pushButton_3->setGeometry(700, 540, 81, 31);
+    ui->pushButton_3->setGeometry(670, 540, 81, 31);
     ui->pushButton_3->setText("Clear");
     font.setPointSize(11);
     ui->pushButton->setFont(font);
@@ -42,13 +41,32 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->pushButton_3->setFont(font);
     PreviousMessage = " ";
 
-    IP_Address = "173.0.0.1";
-    port = 10;
+    IP_Address = "127.0.0.1";
+    port = 9000;
+    socket = new QTcpSocket(this);
+    socket->connectToHost(IP_Address, port);
+    if(socket->waitForConnected(200)){
+        qDebug() << "connection successuful.";
+    }else{
+        qDebug() << "connection failed";
+    }
+    socket->close();
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::sendMessage(QString message)
+{
+    message = "$$$" + message;
+    socket->connectToHost(IP_Address, port);
+    socket->write(message.toUtf8());
+    socket->waitForBytesWritten(200);
+    socket->flush();
+    socket->close();
+     qDebug() << "Message delivered.";
 }
 
 void MainWindow::on_pushButton_clicked()
@@ -70,13 +88,16 @@ void MainWindow::on_pushButton_clicked()
             box->addButton(QMessageBox::No);
             int selection = box->exec();
             if (selection == QMessageBox::Yes){
-                // do something here
+                // send message
+                sendMessage(text);
+                qDebug() << "Message sent.";
             }else if (selection == QMessageBox::No){
                 // no need to do anything
             }
         }else{
             box->setText("Your message is successfully received.");
             PreviousMessage = text;
+            sendMessage(text);
             box->show();
         }
     }
