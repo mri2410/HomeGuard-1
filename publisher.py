@@ -1,6 +1,19 @@
+"""
+ECE 4564
+Final Project
+Team: Immortal
+Members: Arun Rai, Mohammad Islam, and Yihan Pang
+Date: 11/26/2014
 
-# Created by Arun Rai
-# 11/25/2014
+---------------------------------------------------------------------
+Description:
+1. Receive host user information.
+2. Receive visitors' message.
+3. Receive sensor reading, and send trigger signal to camera.
+
+Network protocols: TCP/IP and AMQP
+---------------------------------------------------------------------
+"""
 
 #!/usr/bin/python
 
@@ -13,6 +26,7 @@ import time
 import signal
 import socket
 
+""" Default host IP address and port number """
 HOST = "127.0.0.1"
 PORT = 9000
 
