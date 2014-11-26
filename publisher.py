@@ -2,6 +2,8 @@
 ECE 4564
 Final Project
 Team: Immortal
+Title: HomeGuard - Home Visitors Detection and Alert System
+Filename: publisher.py
 Members: Arun Rai, Mohammad Islam, and Yihan Pang
 Date: 11/26/2014
 
