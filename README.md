@@ -1,13 +1,14 @@
 HomeGuard
 =========
 
-To run the program, first clone the directory to your local machine:
+To run the program, first open a terminal, create a directory and 
+clone the directory in your local machine:
 $ git clone https://github.com/raiarun/HomeGuard
 
-cd into HomeGuard,
+open another terminal, cd into HomeGuard,
 run $ python publisher.py
 
-cd into HomeInformation,
+open another terminal, cd into HomeInformation,
 run $ qmake
   $ make
   run the executable.
@@ -18,7 +19,7 @@ run $ qmake
   $ make
   run the executable.
   type a test message and hit OK.
-
+(Qt4 needst to installed before these projects are run)
 Check you email, a message will be in your email inbox.
 
 When finished, go back to terminal and enter Ctrl + c to exit the program.
