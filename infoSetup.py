@@ -28,6 +28,6 @@ def infoSetup(setHostInfo, message):
 				email = email + extractMessage[i];
 				i +=1;
 		phone = extractMessage[(i + 1):len(extractMessage)];
-		""" Bothe email id and phone number of the host user.
+		""" Both email id and phone number of the host user.
 		the user wants to receive messages through both media."""
 		setHostInfo.setBoth(email, phone);
