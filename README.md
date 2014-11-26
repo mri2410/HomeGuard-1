@@ -11,7 +11,7 @@ cd into HomeInformation,
 run $ qmake
   $ make
   run the executable.
-  choose email and enter your email id (phone service is not active now)
+  choose email and enter your email id (phone service is not active now). Hit OK.
   
 cd into VisitorMessageBox,
 run $ qmake
