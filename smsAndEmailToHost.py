@@ -1,15 +1,18 @@
 
 #!/usr/bin/python
 import smtplib
+from email.mime.text import MIMEText as text
 
 """ Send message to the host via email """
-def sendEmailToHost(host, port, sender, password, receiver, message = 'No message content.'):
+def sendEmailToHost(host, port, sender, password, receiver, message = 'No message content.', subject = 'No subject'):
 	try:
 		mail = smtplib.SMTP(host, port)
 		mail.ehlo()
 		mail.starttls()
 		mail.login(sender, password);
-		mail.sendmail(sender, receiver, message)      
+		msg = text(message)
+		msg['Subject'] = subject
+		mail.sendmail(sender, receiver, msg.as_string())      
 		mail.close()
 	except smtplib.SMTPRecipientsRefused:
 		print 'Receipient refused to receive the message.'
