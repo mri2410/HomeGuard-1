@@ -1,9 +1,10 @@
-
-
 import time
 import pika
 import json
-
+import signal
+import os
+import RPi.GPIO as GPIO
+import time
 def getSensorData(object):
 	while object.getLoopState():
 		time.sleep(1)
