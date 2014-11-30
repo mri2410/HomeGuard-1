@@ -35,14 +35,14 @@ def getSensorData(object):
 			distance = pulse_duration * 17150
 			distance = round(distance, 2)
 			#if visitor isn't previous triggered 
-			if pause==0 and distance>2 and distance<400:
+			if pause==0 and distance>2 and distance<380:
 				pause=1 
 				waitstart=time.time()
-				message = dict([])
+				message = {}
 				message['type']="trigger"
 				object.setMessage(message)
 				object.setMessageSignal(True)
-			elif pause==1 and distance>400:
+			elif pause==1 and distance>380:
 				pause=0
 			elif time.time()-waitstart>300:
 				pause=0				
