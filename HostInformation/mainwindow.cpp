@@ -30,6 +30,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->radioButton->setFont(font);
     ui->radioButton_2->setFont(font);
     ui->radioButton_3->setFont(font);
+    ui->lineEdit->setText("sangpang20@gmail.com");
+    ui->lineEdit_2->setText("5712652653");
     ui->lineEdit->setDisabled(true);
     ui->lineEdit_2->setDisabled(true);
     socket = new QTcpSocket(this);
